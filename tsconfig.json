@@ -1,8 +1,6 @@
 {
-  "exclude": [
-    "dist"
-  ],
-"extends": "astro/tsconfigs/base",
+  "exclude": ["dist"],
+  "extends": "astro/tsconfigs/base",
   "include": [".astro/types.d.ts", ".astro/auto-imports.d.ts", "**/*", ".astro/icon.d.ts"],
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
