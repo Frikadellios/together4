@@ -1,0 +1,76 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  // manage memory usage of the TypeScript language server
+  // "typescript.tsserver.maxTsServerMemory": 2048,
+  // editor customization
+  "editor.guides.bracketPairs": true,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.guides.indentation": true,
+  "editor.guides.bracketPairsHorizontal": "active",
+  // exclude lockfile and node_modules content from CTRL+P search results
+  "search.exclude": {
+    "pnpm-lock.yaml": true,
+    "**/node_modules/*": true,
+    "tmp/*": true,
+    "bun.lockb": true
+  },
+  // autosave with formatting on save
+  "files.autoSave": "afterDelay",
+  "editor.formatOnPaste": true,
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[javascript][typescript][typescriptreact][json][jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  // ensure intellisense offers autocomplete for tailwind classes
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  // set tailwind root font size to match preset so intellisense calculates correct px values for rem (default: 16)
+  "tailwindCSS.rootFontSize": 16,
+  // enable tailwind intellisense
+  "tailwindCSS.codeActions": true,
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "astro-build.astro-vscode",
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit",
+    "quickfix.biome": "always",
+    "source.organizeImports.biome": "explicit"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 26,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 64,
+    "editor.lineNumbers": "off",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "editor.minimap.enabled": false
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "bun.debugTerminal.stopOnEntry": false,
+  "npm.packageManager": "bun"
+}
