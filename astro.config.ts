@@ -1,14 +1,14 @@
 import * as path from 'node:path'
 import cloudflare from '@astrojs/cloudflare'
 import mdx from '@astrojs/mdx'
+import partytown from '@astrojs/partytown'
 import react from '@astrojs/react'
 import sitemap from '@astrojs/sitemap'
 // @ts-check
 // @ts-check
 import { defineConfig } from 'astro/config'
 import AutoImport from 'unplugin-auto-import/astro'
-
-import partytown from '@astrojs/partytown'
+import { remarkReadingTime } from './src/utils/readTime.ts'
 
 import tailwind from '@astrojs/tailwind'
 import postCssOklabPolyfill from '@csstools/postcss-oklab-function'
@@ -22,6 +22,13 @@ export default defineConfig({
   prefetch: {
     prefetchAll: true,
     defaultStrategy: 'viewport'
+  },
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+    shikiConfig: {
+      theme: 'material-theme-palenight',
+      wrap: true
+    }
   },
   vite: {
     css: {
@@ -45,7 +52,8 @@ export default defineConfig({
     mdx({
       syntaxHighlight: 'shiki',
       shikiConfig: {
-        theme: 'github-dark-dimmed'
+        theme: 'material-theme-palenight',
+        wrap: true
       },
       gfm: true
     }),

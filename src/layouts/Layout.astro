@@ -1,0 +1,59 @@
+---
+import ProviderAnimations from '@/components/layouts/provider-animations.astro'
+import TailwindIndicator from '@/components/layouts/tailwind-indicator.astro'
+import { cn } from '@/lib/utils'
+import '@/styles/index.css'
+import { ScrollToTop } from '@/components/layouts/scroll-to-top'
+import CardMouseMoveScript from '@/components/motion/CardMouseMoveScript'
+
+type Props = {
+  title: string
+  description?: string
+  lang?: string
+  mainClass?: string
+  bodyClass?: string
+}
+
+const { title, description, mainClass, bodyClass } = Astro.props as Props
+---
+
+<!doctype html>
+<html lang="en" class="bg-trancperent text-foreground scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={title}
+      href={`${Astro.site}rss.xml`}
+    />
+    <ProviderAnimations />
+  </head>
+  <body
+    class={cn("flex flex-col page font-sans antialiased min-h-screen", bodyClass)}
+  >
+    <main class={cn(mainClass)}>
+      <slot />
+      <TailwindIndicator />
+    </main>
+    <ScrollToTop client:load />
+    <CardMouseMoveScript client:load />
+    <style is:global>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>
