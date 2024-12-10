@@ -1,3 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+      transition: background-color 0.5s ease;
+      font-synthesis-weight: none;
+      text-rendering: optimizeLegibility;
+      font-feature-settings: "rlig" 1, "calt" 1;
+    }
+    .prose code {
+        @apply text-base;
+      }
+
+    h1 {
+      @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-foreground;
+    }
+
+    h2 {
+      @apply mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0 text-foreground;
+    }
+
+    h3 {
+     @apply mt-8 scroll-m-20 text-2xl font-semibold tracking-tight text-foreground;
+    }
+
+    h4 {
+      @apply scroll-m-20 text-xl font-semibold tracking-tight text-foreground;
+    }
+
+    p {
+      @apply leading-7 [&:not(:first-child)]:mt-6
+    }
+
+    .balance-text {
+      text-wrap: balance;
+    }
+  }
+
+
 html {
   scroll-behavior: smooth;
 }
